@@ -173,7 +173,7 @@ public class EthNetworkConfig {
       case YOLO_V3:
         return new EthNetworkConfig(
             jsonConfig(YOLO_GENESIS), YOLO_V3_NETWORK_ID, YOLO_V3_BOOTSTRAP_NODES, null);
-      case MAINNET:
+      case LARKCHAIN:
       default:
         return new EthNetworkConfig(
             jsonConfig(LARKCHAIN_GENESIS),
