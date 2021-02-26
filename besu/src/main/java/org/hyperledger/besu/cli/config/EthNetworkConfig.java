@@ -134,12 +134,12 @@ public class EthNetworkConfig {
 
   public static EthNetworkConfig getNetworkConfig(final NetworkName networkName) {
     switch (networkName) {
-      case LARKCHAIN:
+      case MAINNET:
         return new EthNetworkConfig(
-            jsonConfig(LARKCHAIN_GENESIS),
-            LARKCHAIN_NETWORK_ID,
-            LARKCHAIN_BOOTSTRAP_NODES,
-            LARKCHAIN_DISCOVERY_URL);
+            jsonConfig(MAINNET_GENESIS),
+            MAINNET_NETWORK_ID,
+            MAINNET_BOOTSTRAP_NODES,
+            MAINNET_DISCOVERY_URL);
       case ROPSTEN:
         return new EthNetworkConfig(
             jsonConfig(ROPSTEN_GENESIS),
@@ -176,10 +176,10 @@ public class EthNetworkConfig {
       case MAINNET:
       default:
         return new EthNetworkConfig(
-            jsonConfig(MAINNET_GENESIS),
-            MAINNET_NETWORK_ID,
-            MAINNET_BOOTSTRAP_NODES,
-            MAINNET_DISCOVERY_URL);
+            jsonConfig(LARKCHAIN_GENESIS),
+            LARKCHAIN_NETWORK_ID,
+            LARKCHAIN_BOOTSTRAP_NODES,
+            LARKCHAIN_DISCOVERY_URL);
     }
   }
 
