@@ -16,6 +16,7 @@ package org.hyperledger.besu.cli.config;
 
 public enum NetworkName {
   MAINNET,
+  LARKCHAIN,
   RINKEBY,
   ROPSTEN,
   GOERLI,

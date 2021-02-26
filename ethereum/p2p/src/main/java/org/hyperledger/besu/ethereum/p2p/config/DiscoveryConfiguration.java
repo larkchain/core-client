@@ -31,6 +31,8 @@ public class DiscoveryConfiguration {
       "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.goerli.ethdisco.net";
   public static final String MAINNET_DISCOVERY_URL =
       "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.mainnet.ethdisco.net";
+  public static final String LARKCHAIN_DISCOVERY_URL =
+      "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.mainnet.ethdisco.net";
   public static final String RINKEBY_DISCOVERY_URL =
       "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@all.rinkeby.ethdisco.net";
   public static final String ROPSTEN_DISCOVERY_URL =
@@ -59,6 +61,12 @@ public class DiscoveryConfiguration {
                   // Ethereum Foundation Aleth Bootnodes
                   "enode://979b7fa28feeb35a4741660a16076f1943202cb72b6af70d327f053e248bab9ba81760f39d0701ef1d8f89cc1fbd2cacba0710a12cd5314d5e0c9021aa3637f9@5.1.83.226:30303" // DE
                   )
+              .map(EnodeURL::fromString)
+              .collect(toList()));
+  public static final List<EnodeURL> LARKCHAIN_BOOTSTRAP_NODES =
+      Collections.unmodifiableList(
+          Stream.of(
+                  "enode://979b7fa28feeb35a4741660a16076f1943202cb72b6af70d327f053e248bab9ba81760f39d0701ef1d8f89cc1fbd2cacba0710a12cd5314d5e0c9021aa3637f9@5.1.33.226:30303")
               .map(EnodeURL::fromString)
               .collect(toList()));
   public static final List<EnodeURL> RINKEBY_BOOTSTRAP_NODES =

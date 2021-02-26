@@ -19,6 +19,8 @@ import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.CL
 import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.GOERLI_BOOTSTRAP_NODES;
 import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.GOERLI_DISCOVERY_URL;
 import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.KOTTI_BOOTSTRAP_NODES;
+import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.LARKCHAIN_BOOTSTRAP_NODES;
+import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.LARKCHAIN_DISCOVERY_URL;
 import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.MAINNET_BOOTSTRAP_NODES;
 import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.MAINNET_DISCOVERY_URL;
 import static org.hyperledger.besu.ethereum.p2p.config.DiscoveryConfiguration.MORDOR_BOOTSTRAP_NODES;
@@ -43,6 +45,7 @@ import com.google.common.io.Resources;
 
 public class EthNetworkConfig {
   public static final BigInteger MAINNET_NETWORK_ID = BigInteger.valueOf(1);
+  public static final BigInteger LARKCHAIN_NETWORK_ID = BigInteger.valueOf(1984);
   public static final BigInteger ROPSTEN_NETWORK_ID = BigInteger.valueOf(3);
   public static final BigInteger RINKEBY_NETWORK_ID = BigInteger.valueOf(4);
   public static final BigInteger GOERLI_NETWORK_ID = BigInteger.valueOf(5);
@@ -52,6 +55,7 @@ public class EthNetworkConfig {
   public static final BigInteger MORDOR_NETWORK_ID = BigInteger.valueOf(7);
   private static final BigInteger YOLO_V3_NETWORK_ID = BigInteger.valueOf(34180983699157880L);
   private static final String MAINNET_GENESIS = "/mainnet.json";
+  private static final String LARKCHAIN_GENESIS = "/larkchain.json";
   private static final String ROPSTEN_GENESIS = "/ropsten.json";
   private static final String RINKEBY_GENESIS = "/rinkeby.json";
   private static final String GOERLI_GENESIS = "/goerli.json";
@@ -130,6 +134,12 @@ public class EthNetworkConfig {
 
   public static EthNetworkConfig getNetworkConfig(final NetworkName networkName) {
     switch (networkName) {
+      case LARKCHAIN:
+        return new EthNetworkConfig(
+            jsonConfig(LARKCHAIN_GENESIS),
+            LARKCHAIN_NETWORK_ID,
+            LARKCHAIN_BOOTSTRAP_NODES,
+            LARKCHAIN_DISCOVERY_URL);
       case ROPSTEN:
         return new EthNetworkConfig(
             jsonConfig(ROPSTEN_GENESIS),
@@ -186,6 +196,8 @@ public class EthNetworkConfig {
     switch (network) {
       case MAINNET:
         return jsonConfig(MAINNET_GENESIS);
+      case LARKCHAIN:
+        return jsonConfig(LARKCHAIN_GENESIS);
       case ROPSTEN:
         return jsonConfig(ROPSTEN_GENESIS);
       case RINKEBY:
